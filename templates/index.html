@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <meta name="renderer" content="webkit">
+	    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+		<title>供水平台</title>
+		<link rel="stylesheet" type="text/css" href="../static/webframes/bootstrap3/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../static/webframes/font-awesome-4.7/css/font-awesome.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../static/webframes/h-plus/css/style.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../static/css/main.css"/>
+		<script src="../static/webframes/jquery/jquery-2.1.4.min.js"></script>
+		<script src="../static/webframes/bootstrap3/js/bootstrap.min.js"></script>
+		<script src="../static/webframes/h-plus/js/jquery.metisMenu.js"></script>
+		<script src="../static/webframes/h-plus/js/jquery.slimscroll.min.js"></script>
+		<script src="../static/webframes/layer/layer.js"></script>
+		<script src="../static/webframes/h-plus/js/hplus.min.js"></script>
+		<script src="../static/webframes/h-plus/js/contabs.min.js"></script>
+		<script src="../static/webframes/h-plus/js/pace.min.js"></script>
+	</head>
+	<body class="fixed-sidebar full-height-layout gray-bg" style="overflow:hidden">
+		<!--最外层容器-->
+		<div id="wrapper">
+			<!--顶部logo-->
+			<div class="supply_logo lt"></div>
+        	<!--顶部logo-->
+			<!--左侧导航开始-->
+		    <nav class="navbar-default navbar-static-side" role="navigation">
+		        <div class="nav-close">
+		        	<i class="fa fa-times-circle"></i>
+		        </div>
+		        <div class="sidebar-collapse">
+		            <ul class="nav" id="side-menu">
+		                <nav class="navbar-minimalize fa-bars-icon text-center" role="">
+			                <i class="fa fa-bars"></i>
+			            </nav>
+		                <li>
+		                    <a class="J_menuItem" href="index/list.html">
+		                        <i class="glyphicon glyphicon-home"></i> <span class="nav-label">首页</span>
+		                    </a>
+		                </li>
+		                <li>
+		                    <a href="#">
+		                    	<i class="fa fa-map"></i> <span class="nav-label">地图</span>
+		                    	<span class="fa arrow"></span>
+		                    </a>
+		                    <ul class="nav nav-second-level">
+								<li>
+									<a class="J_menuItem" href="map/network/list.html">管网图</a>
+								</li>
+								<li>
+									<a class="J_menuItem" href="map/user/list.html">用水户专题图</a>
+								</li>
+								<li>
+									<a class="J_menuItem" href="map/ysl/list.html">用水量专题图</a>
+								</li>
+								<li>
+									<a class="J_menuItem" href="map/czje/list.html">充值金额专题图</a>
+								</li>
+							</ul>
+		                </li>
+		                <li>
+		                    <a href="#">
+		                        <i class="fa fa-user"></i> <span class="nav-label">用水户管理</span>
+		                        <span class="fa arrow"></span>
+		                    </a>
+		                    <ul class="nav nav-second-level">
+		                        <li>
+		                            <a class="J_menuItem" href="waterUserMgnt/open/list.html">开户查询</a>
+		                        </li>
+		                        <li>
+		                            <a class="J_menuItem" href="waterUserMgnt/type/list.html">类别统计</a>
+		                        </li>
+		                        <li>
+		                            <a class="J_menuItem" href="waterUserMgnt/time/list.html">时间统计</a>
+		                        </li>
+		                    </ul>
+		                </li>
+		                <li>
+		                    <a href="mailbox.html"><i class="fa fa-calculator"></i>
+		                        <span class="nav-label">财务管理</span><span class="fa arrow"></span></a>
+		                    <ul class="nav nav-second-level">
+		                        <li>
+		                            <a class="J_menuItem" href="financeMgnt/recharge/list.html">充值查询</a>
+		                        </li>
+		                        <li>
+		                            <a class="J_menuItem" href="financeMgnt/type/list.html">类别统计</a>
+		                        </li>
+		                        <li>
+		                            <a class="J_menuItem" href="financeMgnt/time/list.html">时间统计</a>
+		                        </li>
+		                    </ul>
+		                </li>
+		                <li>
+		                    <a href="#"><i class="glyphicon glyphicon-tint"></i>
+		                        <span class="nav-label">用水管理</span><span class="fa arrow"></span></a>
+		                    <ul class="nav nav-second-level">
+		                        <li>
+		                            <a class="J_menuItem" href="waterMgnt/use/list.html">用水查询</a>
+		                        </li>
+		                        <li>
+		                            <a class="J_menuItem" href="waterMgnt/type/list.html">类别统计</a>
+		                        </li>
+		                        <li>
+		                            <a class="J_menuItem" href="waterMgnt/time/list.html">时间统计</a>
+		                        </li>
+		                    </ul>
+		                </li>
+		                <li>
+		                    <a href="#"><i class="glyphicon glyphicon-scale"></i>
+		                        <span class="nav-label">水表管理</span><span class="fa arrow"></span></a>
+		                    <ul class="nav nav-second-level">
+		                        <li>
+		                            <a class="J_menuItem" href="watermeterMgnt/motion/list.html">水表运行状态</a>
+		                        </li>
+		                        <li>
+		                            <a class="J_menuItem" href="watermeterMgnt/control/list.html">阀控制状态</a>
+		                        </li>
+		                        <li>
+		                            <a class="J_menuItem" href="watermeterMgnt/statistics/list.html">水表统计</a>
+		                        </li>
+		                    </ul>
+		                </li>
+		                <li>
+		                    <a href="#"><i class="fa fa-bell"></i>
+		                        <span class="nav-label">报警管理</span><span class="fa arrow"></span></a>
+		                    <ul class="nav nav-second-level">
+		                        <li>
+		                            <a class="J_menuItem" href="alarmMgnt/levelOne/list.html">一级报警</a>
+		                        </li>
+		                        <li>
+		                            <a class="J_menuItem" href="alarmMgnt/levelTwo/list.html">二级报警</a>
+		                        </li>
+		                        <li>
+		                            <a class="J_menuItem" href="alarmMgnt/shortMessage/list.html">短信报警</a>
+		                        </li>
+		                    </ul>
+		                </li>
+		                <li>
+		                    <a href="#"><i class="fa fa-database"></i>
+		                        <span class="nav-label">数据分析</span><span class="fa arrow"></span></a>
+		                    <ul class="nav nav-second-level">
+		                        <li>
+		                            <a class="J_menuItem" href="dataAnalysis/recharge/list.html">回充查询</a>
+		                        </li>
+		                        <li>
+		                            <a class="J_menuItem" href="dataAnalysis/transformation/list.html">阶梯转化查询</a>
+		                        </li>
+		                        <li>
+		                            <a class="J_menuItem" href="dataAnalysis/comparison/list.html">充值回充对比统计</a>
+		                        </li>
+		                    </ul>
+		                </li>
+		                <li>
+		                    <a href="#"><i class="fa fa-file-text"></i><span class="nav-label"> 报表管理</span><span class="fa arrow"></span></a>
+		                    <ul class="nav nav-second-level">
+		                        <li>
+		                            <a class="J_menuItem" href="reportMgnt/year/list.html">年报表</a>
+		                        </li>
+		                        <li>
+		                            <a class="J_menuItem" href="reportMgnt/month/list.html">月报表</a>
+		                        </li>
+		                    </ul>
+		                </li>
+		                <li>
+		                    <a href="#"><i class="fa fa-bell"></i><span class="nav-label"> 消息中心</span><span class="fa arrow"></span></a>
+		                    <ul class="nav nav-second-level">
+		                        <li>
+		                            <a class="J_menuItem" href="message/all/list.html">全部消息</a>
+		                        </li>
+		                        <li>
+		                            <a class="J_menuItem" href="message/unread/list.html">未读消息</a>
+		                        </li>
+		                        <li>
+		                            <a class="J_menuItem" href="message/read/list.html">已读消息</a>
+		                        </li>
+		                    </ul>
+		                </li>
+		                <li>
+		                    <a href="#"><i class="fa fa-pie-chart"></i>
+		                        <span class="nav-label">数据管理</span><span class="fa arrow"></span></a>
+		                    <ul class="nav nav-second-level">
+		                        <li>
+		                            <a class="J_menuItem" href="dataMgnt/unit/list.html">售水单位管理</a>
+		                        </li>
+		                        <li>
+		                            <a class="J_menuItem" href="dataMgnt/address/list.html">水表安装地址</a>
+		                        </li>
+		                        <li>
+		                            <a class="J_menuItem" href="dataMgnt/controller/list.html">控制器管理</a>
+		                        </li>
+		                        <li>
+		                            <a class="J_menuItem" href="dataMgnt/supplier/list.html">供水源管理</a>
+		                        </li>
+		                    </ul>
+		                </li>
+		                <li>
+		                    <a href="#"><i class="fa fa-desktop"></i>
+		                        <span class="nav-label">系统管理 </span><span class="fa arrow"></span></a>
+		                    <ul class="nav nav-second-level">
+		                        <li>
+		                            <a class="J_menuItem" href="systemMgnt/administration/list.html">行政区划</a>
+		                        </li>
+		                        <li>
+		                            <a class="J_menuItem" href="systemMgnt/data/list.html">数据字典</a>
+		                        </li>
+		                        <li>
+		                            <a class="J_menuItem" href="systemMgnt/operation/list.html">运行参数管理</a>
+		                        </li>
+		                        <li>
+		                            <a class="J_menuItem" href="systemMgnt/log/list.html">日志管理</a>
+		                        </li>
+		                        <li>
+		                            <a class="J_menuItem" href="systemMgnt/notice/list.html">公告管理</a>
+		                        </li>
+		                    </ul>
+		                </li>
+						<li>
+		                    <a href="#"><i class="fa fa-key"></i>
+		                        <span class="nav-label">权限管理 </span><span class="fa arrow"></span></a>
+		                    <ul class="nav nav-second-level">
+		                        <li>
+		                            <a class="J_menuItem" href="rightMgnt/user/list.html">用户管理</a>
+		                        </li>
+		                        <li>
+		                            <a class="J_menuItem" href="rightMgnt/role/list.html">角色管理</a>
+		                        </li>
+		                        <li>
+		                            <a class="J_menuItem" href="rightMgnt/resource/list.html">资源管理</a>
+		                        </li>
+		                        <li>
+		                            <a class="J_menuItem" href="rightMgnt/sector/list.html">部门管理</a>
+		                        </li>
+		                    </ul>
+		                </li>
+		            </ul>
+		        </div>
+		    </nav>
+		    <!--左侧导航结束-->
+		    <!--右侧部分开始-->
+		    <div id="page-wrapper" class="gray-bg dashbard-1">
+		        <div class="row content-tabs">
+		            <button class="roll-nav roll-left J_tabLeft"><i class="fa fa-backward"></i>
+		            </button>
+		            <nav class="page-tabs J_menuTabs">
+		                <div class="page-tabs-content">
+		                    <a href="javascript:;" class="active J_menuTab" data-id="index/list.html">首页</a>
+		                </div>
+		            </nav>
+		            <button class="roll-nav roll-right J_tabRight"><i class="fa fa-forward"></i>
+		            </button>
+		            <div class="btn-group roll-nav">
+		                <button class="dropdown J_tabClose" data-toggle="dropdown">关闭操作<span class="caret"></span>
+		                </button>
+		                <ul role="menu" class="dropdown-menu dropdown-menu-right">
+		                    <li class="J_tabShowActive">
+		                        <a>定位当前选项卡</a>
+		                    </li>
+		                    <li class="divider"></li>
+		                    <li class="J_tabCloseAll">
+		                        <a>关闭全部选项卡</a>
+		                    </li>
+		                    <li class="J_tabCloseOther">
+		                        <a>关闭其他选项卡</a>
+		                    </li>
+		                </ul>
+		            </div>
+		            <div class="roll-nav nav-icon">
+		            	<a href="message/unread/list.html" class="J_menuItem posi-relative" id="mes">
+			            	<i class="glyphicon glyphicon-bell"></i>
+			            	<i class="little-red"></i>
+			            </a>
+			            <a href="" data-toggle="dropdown" class="dropdown-toggle useName" aria-expanded="true">
+			            	<i class="fa fa-user-circle-o"></i>
+			            	<span class="user-name">
+			            		<span>欢迎您</span>
+			            		<span>欧阳唯一</span>
+			            	</span>
+			            </a>
+			            <ul role="menu" class="dropdown-menu dropdown-menu-right useName-tog">
+							<li class="J_menuItem">
+								<a onclick="repassword()">修改密码</a>
+							</li>
+							<li class="divider"></li>
+							<li class="J_menuItem">
+								<a href="../login/logout">安全退出</a>
+							</li>
+						</ul>
+			            <a href="login.html" class="quitBtn">
+			            	<i class="fa fa-power-off"></i>
+			            </a>
+		            </div>
+		        </div>
+		        <div class="row J_mainContent" id="content-main">
+		            <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="index/list.html" frameborder="0" data-id="index/list.html" seamless></iframe>
+		        </div>
+		        <div class="footer text-center">
+		        	西安微立方测控有限公司<span class="pl10">版权所有</span>
+		        </div>
+		    </div>
+		    <!--右侧部分结束-->
+		</div>
+		<!--最外层容器-->
+	</body>
+	<script>
+		$(function(){
+			$('.navbar-minimalize').on('click',function(){
+				if($('.supply_logo').width() == 220){
+					$(".supply_logo").width(70);
+				}else{
+					$(".supply_logo").animate({"width" : 220 + "px"}, 550);
+				}
+			});
+			$('#mes').on('click',function(){
+				$('.J_menuTabs a.active').html('未读消息 <i class="glyphicon glyphicon-remove"></i>');
+			});
+			$('#side-menu ul .J_menuItem').on('click',function(){
+				$(this).addClass('secendNav').parent('li').siblings().find('a').removeClass('secendNav');
+			});
+			$('#side-menu li').on('click',function(){
+				$(this).find('.J_menuItem').removeClass('secendNav');
+			})
+		})
+	</script>
+</html>

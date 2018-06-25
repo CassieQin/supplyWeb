@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>管网图</title>
+		<link rel="stylesheet" type="text/css" href="../../../static/webframes/font-awesome-4.7/css/font-awesome.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../../static/webframes/bootstrap3/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../../static/webframes/bootstrap-table/css/bootstrap-table.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../../static/webframes/zTree/css/zTreeStyle/zTreeStyle.css"/>
+		<link rel="stylesheet" type="text/css" href="../../../static/css/main.css"/>
+		<script src="../../../static/webframes/jquery/jquery-2.1.4.min.js"></script>
+		<script src="../../../static/webframes/bootstrap3/js/bootstrap.min.js"></script>
+		<script src="../../../static/webframes/bootstrap-table/js/bootstrap-table.min.js"></script>
+		<script src="../../../static/webframes/bootstrap-table/js/bootstrap-table-zh-CN.js"></script>
+		<script src="../../../static/webframes/zTree/js/jquery.ztree.core.min.js"></script>
+		<script src="js/list.js"></script>
+	</head>
+	<body>
+		<div class="col-lg-12 col-md-12 col-sm-12" class="posi-relative" id="mapBox">
+			<div class="mapBox posi-relative" id="myChart"></div>
+			<div class="posi-absolute map-search-box">
+				<div class="map-input lt"><input id="searchIpt" type="text" placeholder="请输入" /></div>
+				<button class="lt map-btn" id="searchMapBtn"><i class="fa fa-search"></i> 搜索</button>
+			</div>
+			<div class="posi-absolute history-box" id="searchNote">
+				<div class="history-con">
+					<div class="history-tree">
+						<select name="">
+							<option value="">请选择</option>
+							<option value="">1</option>
+						</select>
+					</div>
+					<table id="saleTable" class="mt10"></table>
+				</div>
+			</div>
+			<div class="posi-absolute map-right-btn">
+				<button class="" id="cdcl">长度测量</button>
+				<button class="ml10" id="mjcl">面积测量</button>
+			</div>
+			<div class="posi-fixed hidden-btn"><i class="fa fa-step-forward"></i></div>
+			<div class="posi-fixed-60 hidden-box">
+				<div class="height-40">
+					<div class="lt bar-red"></div>
+					<div class="lt bar-note">输水干管</div>
+				</div>
+				<div class="height-40">
+					<div class="lt bar-green"></div>
+					<div class="lt bar-note">输水分干管</div>
+				</div>
+				<div class="height-40">
+					<div class="lt bar-blue"></div>
+					<div class="lt bar-note">供水支管</div>
+				</div>
+				<div class="height-40">
+					<div class="lt bar-water"></div>
+					<div class="lt bar-note">水源地</div>
+				</div>
+				<div class="height-40">
+					<div class="lt bar-controll"></div>
+					<div class="lt bar-note">控制器</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

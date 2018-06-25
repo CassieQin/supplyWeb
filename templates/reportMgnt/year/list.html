@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>年报表</title>
+		<link rel="stylesheet" type="text/css" href="../../../static/webframes/bootstrap3/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../../static/webframes/bootstrap-table/css/bootstrap-table.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../../static/css/main.css"/>
+		<script src="../../../static/webframes/jquery/jquery-2.1.4.min.js"></script>
+		<script src="../../../static/webframes/bootstrap3/js/bootstrap.min.js"></script>
+		<script src="../../../static/webframes/bootstrap-table/js/bootstrap-table.min.js"></script>
+		<script src="../../../static/webframes/bootstrap-table/js/bootstrap-table-zh-CN.js"></script>
+		<script src="../../../static/webframes/layer/layer.js"></script>
+		<script src="../../../static/webframes/laydate/laydate.js"></script>
+		<script src="js/list.js"></script>
+	</head>
+	<body>
+		<div class="container-fluid">
+			<div class="row">
+				<!--搜索条件-->
+				<div class="col-lg-12 col-md-12 col-sm-12">
+					<div class="search-box mt10">
+						<div class="col-lg-4 col-md-4 col-sm-4 p0">
+							<div class="form-group p-relative">
+								<label class="fr-inline ipt-label pr10">年份选择</label>
+								<input class="fr-inline form-control ipt ipt-search" type="text" id="chooseYear" />
+								<span class="p-absolute"><i class="glyphicon glyphicon-calendar"></i></span>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-4 p0">
+							<button href="javascript:void(0)" class="sale-btn reset-btn" id="resetBtn">
+								<i class="glyphicon glyphicon-repeat"></i> 重置
+							</button>
+							<button href="javascript:void(0)" class="sale-btn search-btn ml5" id="searchBtn">
+								<i class="glyphicon glyphicon-search"></i> 搜索
+							</button>
+						</div>
+					</div>
+				</div>
+				<!--搜索条件-->
+				<div class="col-lg-12 col-md-12 col-sm-12 mt10">
+					<div class="pull-right">
+						<button href="javascript:void(0)" class="sale-btn search-btn" id="">
+							<i class="glyphicon glyphicon-share-alt"></i> 导出
+						</button>
+					</div>
+				</div>
+				<!--表格一-->
+				<div class="col-lg-12 col-md-12 col-sm-12 mt10">
+					<table id="saleTable"></table>
+				</div>
+				<!--表格一-->
+			</div>
+		</div>
+	</body>
+</html>

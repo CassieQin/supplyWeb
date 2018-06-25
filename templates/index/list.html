@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="../../static/webframes/bootstrap3/css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../../static/css/main.css"/>
+		<script src="../../static/webframes/jquery/jquery-2.1.4.min.js"></script>
+		<script src="../../static/webframes/bootstrap3/js/bootstrap.min.js"></script>
+		<script src="../echarts.min.js"></script>
+		<script src="js/list.js"></script>
+	</head>
+	<body style="background: url(../../static/images/jpg/index_bg.jpg) center center no-repeat;">
+		<div class="container-fluid">
+			<div class="row mt10 mb10">
+				<div class="col-lg-3 col-md-4 col-sm-4">
+					<div class="chart-cont chart-re">
+						<div class="chart-title">
+							<p>xxxxxxxx城镇供水总览</p>
+						</div>
+						<div class="dataBox">
+							<div class="dataBox-con">
+								<p class="font-orange"><span id="num1">0</span><span class="font-blue">&nbsp;户</span></p>
+								<p class="font-blue">商业用水</p>
+							</div>
+							<div class="dataBox-con">
+								<p class="font-orange"><span id="num2">0</span><span class="font-blue">&nbsp;户</span></p>
+								<p class="font-blue">商业用水</p>
+							</div>
+							<div class="dataBox-con">
+								<p class="font-orange"><span id="num3">0</span><span class="font-blue">&nbsp;户</span></p>
+								<p class="font-blue">商业用水</p>
+							</div>
+							<div class="dataBox-con">
+								<p class="font-orange"><span id="num4">0</span><span class="font-blue">&nbsp;户</span></p>
+								<p class="font-blue">商业用水</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-7 col-md-5 col-sm-5">
+					<div class="chart-cont">
+						<div class="chart" id="myChart1"></div>
+					</div>
+				</div>
+				<div class="col-lg-2 col-md-3 col-sm-4">
+					<div class="chart-cont textCon">
+						<div class="mt10 ml20 mr20 mb10">
+							<p class="font-huang">生活用水</p>
+							<p class="mt10">ECharts，一个纯 Javascript 的图表库，可以流畅的运行在 PC 和移动设备上，兼容当前绝大部分浏览器（IE8/9/10/11，Chrome，Firefox，Safari等），
+							底层依赖轻量级的 Canvas 类库 ZRender，提供直观，生动，可交互，可高度个性化定制的数据可视化图表。ECharts，一个纯 Javascript 的图表库，可以流畅的运行在 PC 和移动设备上，兼容当前绝大部分浏览器（IE8/9/10/11，Chrome，Firefox，Safari等），底层依赖轻量级的 Canvas 类库 ZRender，提供直观，
+							生动。</p>
+						</div>
+					</div>
+				</div>
+				<div class="mt20 lt w-35">
+					<div class="chart-cont2">
+						<div class="chart-title2">用水方式占比</div>
+						<div class="chart2" id="myChart2"></div>
+					</div>
+				</div>
+				<div class="mt20 lt w-30">
+					<div class="chart-cont2 chart-cont3">
+						<div class="chart-title2">用水方式占比</div>
+						<div class="chart2" id="myChart3"></div>
+					</div>
+				</div>
+				<div class="mt20 lt w-35">
+					<div class="chart-cont2">
+						<div class="chart-title2">安装详情对比</div>
+						<div class="chart2" id="myChart4"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

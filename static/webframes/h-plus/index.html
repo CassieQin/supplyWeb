@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+
+    <title>自助水卡充值机管理平台</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;/error/ie.html"/>
+    <![endif]-->
+    <!-- CSS样式表引入 -->
+    <link rel="shortcut icon" th:href="@{/images/icon/favicon.ico}">
+    <link th:href="@{/webFrames/bootstrap/css/bootstrap.min14ed.css}" rel="stylesheet"/>
+    <link th:href="@{/webFrames/fontawesome/css/font-awesome.min93e3.css}" rel="stylesheet"/>
+    <link th:href="@{/webFrames/animate/animate.min.css}" rel="stylesheet"/>
+    <link th:href="@{/webFrames/h-plus/css/style.min862f.css}" rel="stylesheet"/>
+    <link th:href="@{/webFrames/sweetalert/sweetalert.css}" rel="stylesheet"/>
+    <link th:href="@{/css/base/home.css}" rel="stylesheet"/>
+
+</head>
+
+<body class="fixed-sidebar full-height-layout gray-bg skin-2" style="overflow:hidden">
+<!-- class="dc-home"-->
+<div id="wrapper" class="dc-home">
+    <!--左侧导航开始-->
+    <nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="nav-close"><i class="fa fa-times-circle"></i>
+        </div>
+        <div class="sidebar-collapse">
+            <ul class="nav" id="side-menu">
+                <!-- 用户信息部分 -->
+                <li class="nav-header">
+                    <div class="dropdown profile-element">
+                        <span><img alt="image" class="img-circle"
+                                   th:src="@{/images/png/user_logo_64.png}"/></span>
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <span class="clear">
+                                <span class="block m-t-xs"><strong class="font-bold">当前用户</strong></span>
+                                <span id="username" class="text-muted text-xs block">wwy<b class="caret"></b></span>
+                                </span>
+                        </a>
+                        <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                            <!--<li><a class="J_menuItem" href="#">修改密码</a>
+                            </li>
+                            <li><a class="J_menuItem" href="#">个人资料</a>
+                            </li>
+                            <li class="divider"></li>-->
+                            <li><a id="exit_link">安全退出</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="logo-element">UP</div>
+                </li>
+                <!-- 菜单链接部分--------------可连接UPMS创建-->
+                <li v-for="menuVueItem in menuVueList">
+                    <template v-if="menuVueItem.CHILDREN.length > 0">
+                        <a href="#">
+                            <!-- 菜单一栏的图标 -->
+                            <i aria-hidden="true" :class="menuVueItem.icon"></i>
+                            <!-- 菜单名称 -->
+                            <span class="nav-label">{{menuVueItem.menu_name}}</span>
+                            <!-- 多个子菜单时显示箭头 -->
+                            <span class="fa arrow"></span>
+                        </a>
+                        <!-- 每一个菜单下的子菜单列表 -->
+                        <ul class="nav nav-second-level">
+                            <li v-for="menuChild in menuVueItem.CHILDREN">
+                                <a class="J_menuItem" :href="menuChild.href"><i aria-hidden="true"
+                                                                               :class="menuChild.icon"></i>{{menuChild.menu_name}}</a>
+                            </li>
+                        </ul>
+                    </template>
+
+                    <template v-else>
+                        <a class="J_menuItem" :href="menuVueItem.href"><i :class="menuVueItem.icon"></i>{{menuVueItem.menu_name}}</a>
+                    </template>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!--左侧导航结束-->
+    <!--右侧部分开始-->
+    <div id="page-wrapper" class="gray-bg dashbard-1">
+        <!-- 顶部导航栏部分，搜索框那一行部分 -->
+        <div class="row border-bottom" hidden>
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <!-- 查询框部分 -->
+                <div class="navbar-header">
+                    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i></a>
+                    <!-- 内容查询表单 -->
+                    <form role="search" class="navbar-form-custom" method="post" action="#">
+                        <div class="form-group">
+                            <!-- 查询内容输入框 -->
+                            <input type="text" placeholder="请输入您需要查找的内容 …" class="form-control" name="top-search"
+                                   id="top-search">
+                        </div>
+                    </form>
+                </div>
+
+                <!-- 主题部分 -->
+                <ul class="nav navbar-top-links navbar-right">
+                    <!-- 提醒图标区域，也是一个下拉组件 -->
+                    <li class="dropdown">
+                        <!-- 未读提醒图标，包括数字提醒 -->
+                        <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                            <i class="fa fa-bell"></i> <span class="label label-primary">8</span>
+                        </a>
+                        <!-- 下拉后的内容主体 -->
+                        <ul class="dropdown-menu dropdown-alerts">
+                            <!-- 一条提醒消息 -->
+                            <li>
+                                <a href="#">
+                                    <div>
+                                        <i class="fa fa-envelope fa-fw"></i> 您有16条未读消息
+                                        <span class="pull-right text-muted small">4分钟前</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <!-- 分割线 -->
+                            <li class="divider"></li>
+
+                            <!-- 底部查看所有的链接 -->
+                            <li>
+                                <div class="text-center link-block">
+                                    <a class="J_menuItem" href="#">
+                                        <strong>查看所有 </strong>
+                                        <i class="fa fa-angle-right"></i>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- 主题图标，可点击切换主题 -->
+                    <li class="dropdown hidden-xs">
+                        <a class="right-sidebar-toggle" aria-expanded="false">
+                            <i class="fa fa-tasks"></i> 主题
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- TAB行，用于显示每一个页面的TAB -->
+        <div class="row content-tabs dc-home-top">
+            <!-- 左箭头按钮，最左边 -->
+            <button class="roll-nav roll-left J_tabLeft"><i class="fa fa-backward"></i></button>
+            <!-- 首页TAB，可直接指定要显示的页面，每次打开网站都会默认显示 -->
+            <nav class="page-tabs J_menuTabs">
+                <div class="page-tabs-content">
+                  <a href="javascript:void(0);" class="active J_menuTab" data-id="../../sellWaterTerminal/rechargeRecordQController/rechargeRecordList.html">充值记录查询
+                      <i class="fa fa-times-circle"></i>
+                  </a>
+                </div>
+            </nav>
+
+            <!-- 右箭头按钮 -->
+            <button class="roll-nav roll-right J_tabRight"><i class="fa fa-forward"></i></button>
+
+            <!-- 关闭操作下拉组 -->
+            <div class="btn-group roll-nav roll-right">
+                <button class="dropdown J_tabClose" data-toggle="dropdown">关闭操作<span class="caret"></span></button>
+                <ul role="menu" class="dropdown-menu dropdown-menu-right">
+                    <li class="J_tabShowActive"><a>定位当前选项卡</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li class="J_tabCloseAll"><a>关闭全部选项卡</a>
+                    </li>
+                    <li class="J_tabCloseOther"><a>关闭其他选项卡</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 退出 -->
+            <a class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
+        </div>
+
+        <!-- 注入iframe，显示TAB页面 -->
+        <div class="row J_mainContent" id="content-main">
+            <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="../rechargeRecordQController/rechargeRecordList.html" frameborder="0"
+                    data-id="../../sellWaterTerminal/rechargeRecordQController/rechargeRecordList.html" seamless></iframe>
+        </div>
+
+        <!-- 底部行，显示企业信息 -->
+        <div align="center" class="footer">
+            <div class="pull-right">&copy;  <span><img width="8%" height="8%" alt="image" class="img-circle" th:src="@{/images/png/logo.png}"/></span>
+                <a href="http://wlfck.cn/" target="_blank">西安微立方测控技术有限公司</a>  版权所有
+            </div>
+        </div>
+    </div>
+    <!--右侧部分结束-->
+
+    <!--右侧边栏(主题下拉组)开始-->
+    <div id="right-sidebar">
+        <div class="sidebar-container">
+            <!-- 下拉框TAB，每一个li都是一个TAB，然后用内部的<a>标签的href来绑定内容部分的div的id -->
+            <ul class="nav nav-tabs navs-3">
+                <li class="active">
+                    <a data-toggle="tab" href="#tab-1">
+                        <i class="fa fa-gear"></i> 主题
+                    </a>
+                </li>
+                <li class="">
+                    <a data-toggle="tab" href="#tab-2">系统消息</a>
+                </li>
+                <li>
+                    <a data-toggle="tab" href="#tab-3">个人设置</a>
+                </li>
+            </ul>
+
+            <!-- 每一个TAB对应的内容 -->
+            <div class="tab-content">
+
+                <!-- TAB1，主题设置：id和tab中的href绑定 -->
+                <div id="tab-1" class="tab-pane active">
+                    <div class="sidebar-title">
+                        <h3><i class="fa fa-comments-o"></i> 主题设置</h3>
+                        <small><i class="fa fa-tim"></i> 你可以从这里选择和预览主题的布局和样式，这些设置会被保存在本地，下次打开的时候会直接应用这些设置。</small>
+                    </div>
+                    <div class="skin-setttings">
+                        <div class="title">主题设置</div>
+                        <div class="setings-item">
+                            <span>收起左侧菜单</span>
+                            <div class="switch">
+                                <div class="onoffswitch">
+                                    <input type="checkbox" name="collapsemenu" class="onoffswitch-checkbox"
+                                           id="collapsemenu">
+                                    <label class="onoffswitch-label" for="collapsemenu">
+                                        <span class="onoffswitch-inner"></span>
+                                        <span class="onoffswitch-switch"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="setings-item">
+                            <span>固定顶部</span>
+                            <div class="switch">
+                                <div class="onoffswitch">
+                                    <input type="checkbox" name="fixednavbar" class="onoffswitch-checkbox"
+                                           id="fixednavbar">
+                                    <label class="onoffswitch-label" for="fixednavbar">
+                                        <span class="onoffswitch-inner"></span>
+                                        <span class="onoffswitch-switch"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="setings-item">
+                            <span>固定宽度</span>
+                            <div class="switch">
+                                <div class="onoffswitch">
+                                    <input type="checkbox" name="boxedlayout" class="onoffswitch-checkbox"
+                                           id="boxedlayout">
+                                    <label class="onoffswitch-label" for="boxedlayout">
+                                        <span class="onoffswitch-inner"></span>
+                                        <span class="onoffswitch-switch"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="title">皮肤选择</div>
+                        <div class="setings-item default-skin nb">
+                            <span class="skin-name "><a href="#" class="s-skin-0">默认皮肤</a></span>
+                        </div>
+                        <div class="setings-item blue-skin nb">
+                            <span class="skin-name "><a href="#" class="s-skin-1">蓝色主题</a></span>
+                        </div>
+                        <div class="setings-item yellow-skin nb">
+                            <span class="skin-name "><a href="#" class="s-skin-3">黄色/紫色主题</a></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB2，通知列 -->
+                <div id="tab-2" class="tab-pane">
+                    <!-- 头部显示信息 -->
+                    <div class="sidebar-title">
+                        <h3><i class="fa fa-comments-o"></i> 系统消息</h3>
+                        <small><i class="fa fa-tim"></i> 您当前有10条未读信息</small>
+                    </div>
+                    <!-- 内容主体 -->
+                    <div>
+                        <!-- 每一个div(class="sidebar-message)都表示一行信息 -->
+                        <div class="sidebar-message">
+                            <a href="#">
+                                <div class="pull-left text-center">
+                                    <img alt="image" class="img-circle message-avatar"
+                                         src="../../static/images/png/user_logo_64.png">
+                                </div>
+                                <div class="media-body">
+                                    您的密码已到期，请即时修改
+                                    <br>
+                                    <small class="text-muted">今天 4:21</small>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 第三个TAB -->
+                <div id="tab-3" class="tab-pane">
+                    <!-- 头部 -->
+                    <div class="sidebar-title">
+                        <h3><i class="fa fa-cube"></i> 个人设置</h3>
+                        <small><i class="fa fa-tim"></i> 您可以根据偏好设置使用方式</small>
+                    </div>
+
+                    <!-- 设置的列表滚动组 -->
+                    <ul class="sidebar-list">
+                        <!-- 一个li表示一项 -->
+                        <li>
+                            <a href="#">
+                                <div class="small pull-right m-t-xs">9小时以后</div>
+                                <h4>市场调研</h4> 按要求接收教材；
+
+                                <div class="small">已完成： 22%</div>
+                                <div class="progress progress-mini">
+                                    <div style="width: 22%;" class="progress-bar progress-bar-warning"></div>
+                                </div>
+                                <div class="small text-muted m-t-xs">项目截止： 4:00 - 2015.10.01</div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 全局js -->
+<script th:src="@{/webFrames/jquery/jquery.min.js}" type="text/javascript"></script>
+<script th:src="@{/webFrames/bootstrap/js/bootstrap.min.js}" type="text/javascript"></script>
+<script th:src="@{/webFrames/layer/layer.js}" type="text/javascript"></script>
+<script th:src="@{/webFrames/vue/vue.min.js}" type="text/javascript"></script>
+<!-- 主题js -->
+<script th:src="@{/webFrames/h-plus/js/hplus.min.js}" type="text/javascript"></script>
+<script th:src="@{/webFrames/metismenu/jquery.metisMenu.js}" type="text/javascript"></script>
+
+<script th:src="@{/webFrames/slimscroll/jquery.slimscroll.min.js}" type="text/javascript"></script>
+<script th:src="@{/webFrames/h-plus/js/contabs.min.js}" type="text/javascript"></script>
+<script th:src="@{/webFrames/pace/pace.min.js}" type="text/javascript"></script>
+<!-- 第三方插件 -->
+<script th:src="@{/webFrames/jquery/jquery.cookie.js}"></script>
+<script th:src="@{/webFrames/sweetalert/sweetalert.min.js}"></script>
+<!-- 自定义JS -->
+<script th:src="@{/webFrames/appbase/app.js}" type="text/javascript"></script>
+<script type="text/javascript">
+
+    var menuVue = new Vue({
+        el: '#side-menu',
+        data: {
+            menuVueList: {}
+        }
+    });
+
+    //用户点击退出
+    $("#exit_link,.J_tabExit").bind("click", function () {
+        layer.confirm('确认退出系统吗？', {icon: 3}, function () {
+            app.callAjaxPost("/sellWaterTerminal/login/exit", {}, function (result) {
+                if(result.success){
+                    window.location.href="/sellWaterTerminal/login/login.html";
+                }
+            });
+        });
+    });
+
+    /**
+     * 获取当前登录用户的数据
+     *
+     */
+    app.callAjaxPost("/sellWaterTerminal/index/obtainLoginUser", {}, function (result) {
+        if (result.success) {
+            $('span[id="username"]').html(result.data.USERNAME + '<b class="caret"></b>');
+        }
+    });
+
+    //获取菜单列表
+    var userMenus = app.callAjaxPostSync('/sellWaterTerminal/index/obtainUserMenus',  {parent: '1'});
+    if (userMenus.success) {
+        menuVue.menuVueList = userMenus.data;
+    } else {
+        layer.alert("菜单加载失败", {icon: 2});
+    }
+
+</script>
+</body>
+
+</html>
